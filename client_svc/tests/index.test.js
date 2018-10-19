@@ -9,13 +9,12 @@ chai.use(chaiHttp);
 describe('routes : index', () => {
 
   describe('GET /does/not/exist', () => {
-    it('should throw an error', (done) => {
+    it('should handle nonexistent routes', (done) => {
       chai.request(server)
       .get('/does/not/exist')
       .end((err, res) => {
-        should.exist(err);
         res.status.should.equal(404);
-        res.type.should.equal('application/json');
+        res.type.should.equal('text/html');
         done();
       });
     });

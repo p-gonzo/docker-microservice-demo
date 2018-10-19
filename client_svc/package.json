@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node tests/index.test.js",
+    "test": "./node_modules/mocha/bin/_mocha tests/index.test.js",
     "start": "node index.js"
   },
   "author": "Philip Gonzalez",
@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "chai-http": "^4.2.0"
+    "chai-http": "^4.2.0",
+    "mocha": "^5.2.0"
   }
 }
