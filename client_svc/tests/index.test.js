@@ -32,4 +32,17 @@ describe('routes : index', () => {
     });
   });
 
+  describe('GET /', () => {
+    it('should communicate with the Hashing MicroService', (done) => {
+      chai.request(server)
+      .post('/hash')
+      .send({ password: 'abc123'})
+      .end((err, res) => {
+        res.status.should.equal(200);
+        res.text.should.eql('321cba');
+        done();
+      });
+    });
+  });
+
 });
