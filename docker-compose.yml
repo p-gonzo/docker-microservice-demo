@@ -1,0 +1,27 @@
+version: '2.1'
+
+services:
+
+  hashing-svc:
+    container_name: hashing-svc
+    build: ./hashing_svc
+    ports:
+      - '3001:8001'
+    environment:
+      - PORT=3001
+    healthcheck:
+      test: exit 0
+  
+  client-svc:
+    container_name: client-svc
+    build: ./client_svc
+    ports:
+      - '3002:8002'
+    environment:
+      - HASHING_SVC_URL=hashing-svc
+      - PORT=3002
+    depends_on:
+      hashing-svc:
+        condition: service_healthy
+    links:
+      - hashing-svc

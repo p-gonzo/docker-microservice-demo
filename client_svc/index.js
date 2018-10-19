@@ -12,7 +12,7 @@ app.use(morgan('dev'));
 app.get('/', (req, res) => res.send('Hello World'));
 
 app.post('/hash', (req, res) => {
-  axios.post(process.env.HASHING_SVC_URI, {password: req.body.password})
+  axios.post(process.env.HASHING_SVC_URL, {password: req.body.password})
     .then((data) => {
       res.send(data);
     })
