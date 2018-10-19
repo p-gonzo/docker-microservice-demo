@@ -10,3 +10,7 @@ Implemented using docker-compose
 
 - `docker-compose build`
 - `docker-compose up -d`
+
+## Testing
+
+`docker-compose run client-svc npm test -d`
