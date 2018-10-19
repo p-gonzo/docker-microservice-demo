@@ -16,4 +16,4 @@ app.post('/', (req, res) => {
   res.send(reverseString(req.body.password));
 })
 
-app.listen(PORT, () => console.log(`Listening on ${PORT}`))
+app.listen(PORT, () => console.log(`Listening on ${PORT}`));

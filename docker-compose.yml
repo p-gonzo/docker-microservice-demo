@@ -6,9 +6,9 @@ services:
     container_name: hashing-svc
     build: ./hashing_svc
     ports:
-      - '3001:8001'
+      - '8002:3002'
     environment:
-      - PORT=3001
+      - PORT=3002
     healthcheck:
       test: exit 0
   
@@ -16,12 +16,9 @@ services:
     container_name: client-svc
     build: ./client_svc
     ports:
-      - '3002:8002'
+      - '8001:3001'
     environment:
-      - HASHING_SVC_URL=hashing-svc
-      - PORT=3002
-    depends_on:
-      hashing-svc:
-        condition: service_healthy
+      - HASHING_SVC_URL=http://hashing-svc:3002
+      - PORT=3001
     links:
       - hashing-svc
