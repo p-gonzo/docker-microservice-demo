@@ -22,7 +22,6 @@ app.post('/hash', (req, res) => {
     })
 });
 
-app.listen(PORT, () => {
-  console.log(`Listening on ${PORT}`);
-  console.log("Port", process.env.HASHING_SVC_URL);
-  });
+module.exports.app = app;
+
+app.listen(PORT, () => console.log(`Listening on ${PORT}`));
